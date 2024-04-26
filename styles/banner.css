@@ -1,0 +1,51 @@
+.banner {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .banner {
+        display: block;
+        background: #d446a5;
+        color: var(--branco);
+        text-align: center;
+        padding: 0.5em 0em 0.5em 5em;
+    }
+
+    .banner__container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .banner__lista ul {
+        display: flex;
+    }
+
+    .banner__lista li {
+        display: block;
+        margin-right: 4em;
+    }
+
+    .banner__lista li a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        padding: 0.5em;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+    .banner__lista li a:hover {
+        background-color: transparent;
+        color: rgb(116, 0, 64);
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .banner {
+        padding: 0.8em 0;
+    }
+
+    .banner__lista li {
+        margin-right: 6em;
+    }
+}

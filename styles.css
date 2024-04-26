@@ -1,0 +1,25 @@
+@import url("styles/cabecalho.css");
+@import url("styles/banner.css");
+@import url("styles/carrossel.css");
+@import url("styles/rodape.css");
+
+:root {
+    --cor-de-fundo: #EBECEE;
+    --branco: #FFFFFF;
+    --rosa-degrade: linear-gradient(to right, #ff84ca, #f146b8, #b10073);
+    --font-principal: "Poppins";
+    --fonte-secundaria: "Josefin Sans";
+    --preto: #000000;
+    --cinza: #474646;
+    --cinza-claro: #858585;
+    --cinza-claro-2: #f5f5f5;
+    --rosa: #d446a5;
+}
+
+body {
+    background-color: var(--branco);
+    font-family: var(--font-principal);
+    font-size: 16px;
+    font-weight: 400;
+    height: 100%;
+}

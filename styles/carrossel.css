@@ -1,0 +1,151 @@
+.carrossel___1 {
+    display: none;
+}
+
+.carrossel {
+    width: 100%;
+}
+
+.carrossel__container {
+    display: flex;
+    margin: 1em 3vw 1em 3vw;
+    align-items: center;
+}
+
+.swiper {
+    width: 150em;
+}
+
+.swiper-slide {
+    width: 100%;
+    border: 0.01em solid var(--cinza-claro-2);
+    box-shadow: 0 0 30em rgba(0, 0, 0, 0.05);
+}
+
+.botao__comprar {
+    padding: 0.3em 1em;
+    background-color: var(--rosa);
+    color: var(--branco);
+    border: none;
+    border-radius: 0.1em;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.botao__comprar:hover {
+    background-color: #ff80d9;
+}
+
+.swiper-slide img {
+    width: 100%;
+}
+
+.swiper-slide:hover {
+    background-color: #ebe7e7;
+}
+
+.swiper-titulo {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 0.6em;
+    padding: 1em 1em 0 0.5em;
+}
+
+.swiper-avaliacao {
+    padding: 0.5em 0 0.5em 0;
+    height: 0.8em;
+}
+
+.swiper-preco {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0 1em 1em 0.5em;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+@media screen and (min-width: 1024px) {
+    .carrossel__titulo {
+        font-size: 2em;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 400;
+        background-color: transparent;
+        color: var(--branco);
+        padding: 1em 2em;
+    }
+
+    .swiper-pagination {
+        margin: 2em 0 3em 0;
+    }
+
+    .swiper {
+        width: 60%;
+    }
+
+    .carrossel___1 {
+        background-image: url("../img/foto.png");
+        background-size: 100%;
+        background-position: 0em 0em;
+        padding: 10em;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .carrossel__container {
+        display: flex;
+        margin: 2em 5vw 3em 5vw;
+        align-items: center;
+    }
+
+    .swiper-titulo {
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: 0.7em;
+        padding: 1em 1em 0.5em 1em;
+    }
+
+    .swiper-avaliacao {
+        padding-bottom: 0.5em;
+        height: 1em;
+    }
+
+    .swiper-preco {
+        font-family: 'Times New Roman', Times, serif;
+        padding: 0em 0em 0.5em 0.7em;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .swiper-pagination {
+        margin: 1em 0;
+    }
+
+    .swiper {
+        width: 70%;
+    }
+
+    .carrossel__mais {
+        background-color: var(--rosa);
+        padding: 0.5em 1em;
+        color: var(--branco);
+        font-weight: 700;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        border-radius: 0.3em;
+    }
+
+    .carrossel__mais:hover {
+        background-color: #77004f;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .swiper-titulo {
+        font-size: 1em;
+    }
+
+}
