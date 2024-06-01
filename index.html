@@ -15,6 +15,7 @@
     <link href="https//fonts.googleapis.com/css2?family=JosefinSans:wght@400;700display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -55,13 +56,15 @@
                 <button class="pesquisa__botao"><img src="img/pesquisa.svg" alt="Buscar"></button>
             </div>
 
+
             <div class="container">
                 <a href="#" class="container__link">
-                    <img src="img/sacola.png" alt="Sacola de compras" class="container__imagem">
+                    <img src="img/sacola.png" alt="Sacola de compras" class="container__sacola">
                     <p class="container__texto">Minha sacola</p>
+                    <div id="sacola-counter" class="sacola-counter" style="display: none;">0</div>
                 </a>
                 <a href="#" class="container__link">
-                    <img src="img/usuario.png" alt="Meu perfil" class="container__imagem">
+                    <img src="img/usuario.png" alt="Meu perfil" class="container__perfil">
                     <p class="container__texto">Meu perfil</p>
                 </a>
             </div>
@@ -71,6 +74,7 @@
             <input type="text" class="pesquisa__texto" placeholder="Qual produto gostaria de encontar?">
             <button class="pesquisa__botao"><img src="img/pesquisa.svg" alt="Buscar"></button>
         </div>
+
     </header>
 
     <section class="banner">
@@ -235,7 +239,7 @@
                         <button class="botao__comprar">Comprar</button>
                     </div>
                     <div class="swiper-slide"><img src="img/itens/unha.webp" alt="Produto para unhas">
-                        <h1 class="swiper-titulo">UNHAS POSTIÇAS KISS 20u</h1>
+                        <h1 class="swiper-titulo">UNHAS POSTIÇAS KISS</h1>
                         <img class="swiper-avaliacao" src="img/estrelas.svg" alt="Avaliação 5 estrelas">
                         <h2 class="swiper-preco">R$ 35,50</h2>
                         <button class="botao__comprar">Comprar</button>
@@ -286,8 +290,11 @@
         <div class="contato__descricao">
             <h2 class="contato__titulo">Fique por dentro das novidades!</h2>
             <p class="contato__texto">Atualizações de novos produtos, promoções e outros.</p>
-            <input type="email" placeholder="Cadastre seu e-mail" class="contato__email">
+            <input type="email" class="contato__email" id="emailInput" placeholder="Cadastre seu e-mail">
         </div>
+        <div class="message" id="message"></div>
+
+
     </section>
 
 
@@ -355,6 +362,7 @@
                 <a href="#" class="lista-rodape__link">Unhas</a>
             </li>
         </ul>
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -373,7 +381,118 @@
                 }
             }
         });
+
     </script>
+
+    <button id="scrollToTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+
+        // utilizado para rolar a tela de volta para cima, com o uso de uma seta no canto inferior direito da tela
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollToTopBtn").style.display = "block";
+            } else {
+                document.getElementById("scrollToTopBtn").style.display = "none";
+            }
+        }
+
+        document.getElementById("scrollToTopBtn").addEventListener("click", function () {
+            document.documentElement.scrollIntoView({ behavior: 'smooth' });
+            document.body.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // utilizado para rolar a tela para os produtos assim que apertar no "saiba mais"
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".carrossel__mais").addEventListener("click", function () {
+                rolarParaBaixo();
+            });
+        });
+
+        function rolarParaBaixo() {
+            window.scrollBy({
+                top: window.innerHeight - 100,
+                behavior: 'smooth'
+            });
+        }
+
+        // utilizado para cadastrar um email e verificar se o ele é válido ou não
+
+        var emailInput = document.getElementById('emailInput');
+        var messageElement = document.getElementById('message');
+
+        emailInput.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                validarEmail();
+            } else {
+                limparMensagens();
+            }
+        });
+
+        emailInput.addEventListener('click', function () {
+            limparMensagens();
+        });
+
+        document.addEventListener('click', function (event) {
+            if (event.target !== emailInput) {
+                limparMensagens();
+            }
+        });
+
+        function validarEmail() {
+            var email = emailInput.value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailRegex.test(email)) {
+                exibirMensagem('E-mail cadastrado com sucesso!', 'successo');
+            } else {
+                exibirMensagem('E-mail inválido!', 'erro');
+            }
+
+            setTimeout(limparMensagens, 1000);
+        }
+
+        function exibirMensagem(mensagem, classe) {
+            messageElement.textContent = mensagem;
+            messageElement.className = 'message ' + classe;
+        }
+
+        function limparMensagens() {
+            messageElement.textContent = '';
+            messageElement.className = 'message';
+        }
+
+        // utilizado para adicionar um número na sacola cada vez que clicar no botão de "comprar"
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let sacolaCounter = document.getElementById('sacola-counter');
+            let itemCount = 0;
+
+            document.querySelectorAll('.botao__comprar').forEach(button => {
+                button.addEventListener('click', function () {
+                    itemCount++;
+                    sacolaCounter.textContent = itemCount;
+                    sacolaCounter.style.display = 'flex';
+                });
+            });
+        });
+
+        // utilizado para mudar o cursor do botão de pesquisa, lista do banner, saiba mais, botão de comprar e lista do rodapé 
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let links = document.querySelectorAll(".pesquisa__botao, .banner__lista li a, .carrossel__mais, .botao__comprar, .lista-rodape__link");
+
+            links.forEach(link => {
+                link.style.cursor = "pointer";
+            });
+        });
+
+    </script>
+
+
 </body>
 
 </html>

@@ -38,7 +38,29 @@
     display: inline-block;
 }
 
-.container__imagem {
+
+.container__sacola {
+    padding: 0.6em;
+    width: 2em;
+    height: 2em;
+}
+
+.sacola-counter {
+    position: absolute;
+    top: 1.1em;
+    right: 5.4em;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.container__perfil {
     padding: 0.6em;
     width: 2em;
     height: 2em;
@@ -178,7 +200,6 @@
         background: var(--rosa);
         border: none;
         padding: 0.9em;
-        cursor: pointer;
         transition: background-color 0.3s ease;
     }
 
@@ -203,6 +224,21 @@
     .cabecalho {
         display: flex;
         padding: 1.5em 2em;
+    }
+
+    .sacola-counter {
+        position: absolute;
+        top: 2.4em;
+        right: 22.6em;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
     }
 
     .container__link {

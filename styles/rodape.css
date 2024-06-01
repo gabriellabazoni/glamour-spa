@@ -40,6 +40,7 @@
     color: var(--rosa);
 }
 
+
 .contato__email:focus::placeholder {
     color: transparent;
     background: transparent;
@@ -47,10 +48,11 @@
 
 .contato__email::placeholder {
     font-family: var(--fonte-principal);
-    color: #990059;
+    color: #030002;
     background: url("../img/email.svg") no-repeat;
     padding-left: 2em;
 }
+
 
 .rodape {
     background-color: var(--cinza-claro-2);
@@ -89,6 +91,37 @@
 
 .contato__email__2 {
     display: none;
+}
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--rosa);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 10px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.message {
+    margin-top: 5px;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.successo {
+    color: green;
+}
+
+.erro {
+
+
+    color: red;
 }
 
 @media screen and (min-width: 1024px) {

@@ -28,7 +28,6 @@
     .banner__lista li a {
         text-decoration: none;
         color: rgb(255, 255, 255);
-        cursor: pointer;
         padding: 0.5em;
         text-transform: uppercase;
         font-weight: 400;
